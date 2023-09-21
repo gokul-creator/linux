@@ -1,0 +1,4 @@
+docker run -d --name <name> -p 8080:80 -v hostname:<container_path> image:tag
+  pulll image and recreate tag
+docker pull iamge:tag
+docker tag image:tag image:newtag
