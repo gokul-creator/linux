@@ -2,6 +2,9 @@ useradd with uid and different home directory
 sudo useradd  -m <directory> -u uid -g gid
 groupadd <gorupname>
 useradd <name> -g <groupname>
-add user with no login shell : adduser <name> -s /sbin/nologin
+adduser with no login shell--> adduser <name> -s /sbin/nologin
+
+
 git tas1
 git init --bare <directory.git>
+
