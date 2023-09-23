@@ -1,4 +1,5 @@
 docker run -d --name <name> -p 8080:80 -v hostname:<container_path> image:tag
-  pulll image and recreate tag
+  pulll image and recreate tag--->
 docker pull iamge:tag
 docker tag image:tag image:newtag
+docker container with new image---> docker commit containerid new_image:tag
