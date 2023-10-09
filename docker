@@ -4,3 +4,43 @@ docker pull iamge:tag
 docker tag image:tag image:newtag
 docker container with new image---> docker commit containerid new_image:tag
 docker netowrk create--> docker network create --driver brige macvlan --subnet <> --ip-range <> name 
+
+
+docker-compose with the dockerfile 
+
+version: '3'
+services:
+    web:
+        build: ./app
+        container_name: python
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./app:/code
+        depends_on:
+            - redis
+    redis:
+        image: redis
+        container_name: redis
+
+
+FROM python:2.7
+ADD . /code
+WORKDIR /code
+RUN pip install -r requirements.txt
+
+
+from flask import Flask
+from redis import Redis
+
+app = Flask(__name__)
+redis = Redis(host='redis', port=6379)
+
+@app.route('/')
+def hello():
+    redis.incr('hits')
+    return 'This Compose/Flask demo has been viewed %s time(s).' % redis.get('hits')
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True)
