@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:SemanticSugar/noc-scripts
-    targetRevision: argo
-    path: argo
+    repoURL: https://github.com/gokul-creator/linux.git
+    targetRevision: HEAD
+    path: /
   destination:
     server: https://kubernetes.default.svc
     namespace: my-app
