@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/gokul-creator/linux.git
     targetRevision: HEAD
-    path: /
+    path: linux
   destination:
     server: https://kubernetes.default.svc
     namespace: my-app
