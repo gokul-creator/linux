@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/gokul-creator/linux.git
-    targetRevision: HEAD
+    targetRevision: ./
     path: linux
   destination:
     server: https://kubernetes.default.svc
