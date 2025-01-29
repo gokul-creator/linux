@@ -1,0 +1,21 @@
+---
+networks:
+  graylog_graynet:
+    external: true
+services:
+  traefik:
+    container_name: traefik-prod-1
+    image: traefik:3.0.1
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./config/traefik.yaml:/etc/traefik/traefik.yaml:ro
+      - ./config/conf/:/etc/traefik/conf/
+      - ./config/certs/:/etc/traefik/certs/
+    environment:
+      - CF_DNS_API_TOKEN=O2SfTdkrAlHt8ZtMUfUAEjQ14OvhL4C-he_3_OV3
+    networks:
+      - graylog_graynet
+    restart: unless-stopped
